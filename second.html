@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Journey 💕</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ffeef8 0%, #ffe5f1 100%);
+            padding: 60px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 80px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .main-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 72px;
+            color: #ff1493;
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            font-size: 24px;
+            color: #666;
+            font-weight: 300;
+        }
+
+        /* Timeline */
+        .timeline {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            padding: 0 20px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #ff69b4 0%, #ff1493 100%);
+            transform: translateX(-50%);
+        }
+
+        .month-card {
+            position: relative;
+            margin-bottom: 80px;
+            animation: fadeInUp 0.8s ease-out backwards;
+        }
+
+        .month-card:nth-child(odd) {
+            padding-right: 50%;
+            padding-left: 0;
+        }
+
+        .month-card:nth-child(even) {
+            padding-left: 50%;
+            padding-right: 0;
+        }
+
+        .month-card:nth-child(1) { animation-delay: 0.1s; }
+        .month-card:nth-child(2) { animation-delay: 0.2s; }
+        .month-card:nth-child(3) { animation-delay: 0.3s; }
+        .month-card:nth-child(4) { animation-delay: 0.4s; }
+        .month-card:nth-child(5) { animation-delay: 0.5s; }
+        .month-card:nth-child(6) { animation-delay: 0.6s; }
+        .month-card:nth-child(7) { animation-delay: 0.7s; }
+        .month-card:nth-child(8) { animation-delay: 0.8s; }
+        .month-card:nth-child(9) { animation-delay: 0.9s; }
+        .month-card:nth-child(10) { animation-delay: 1s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .month-content {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(255, 20, 147, 0.2);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .month-content:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(255, 20, 147, 0.3);
+        }
+
+        .month-card:nth-child(odd) .month-content {
+            margin-right: 50px;
+        }
+
+        .month-card:nth-child(even) .month-content {
+            margin-left: 50px;
+        }
+
+        .month-number {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 700;
+            color: white;
+            box-shadow: 0 5px 20px rgba(255, 20, 147, 0.4);
+            border: 5px solid #ffeef8;
+        }
+
+        .month-card:nth-child(odd) .month-number {
+            right: -85px;
+        }
+
+        .month-card:nth-child(even) .month-number {
+            left: -85px;
+        }
+
+        .month-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: #ff1493;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .month-description {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #555;
+            font-weight: 300;
+        }
+
+        .month-emoji {
+            font-size: 40px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        /* Button Section */
+        .button-section {
+            text-align: center;
+            margin-top: 100px;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .memories-button {
+            display: inline-block;
+            padding: 25px 70px;
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: white;
+            background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
+            border: none;
+            border-radius: 60px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 15px 40px rgba(255, 20, 147, 0.5);
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            position: relative;
+            overflow: hidden;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 15px 40px rgba(255, 20, 147, 0.5);
+            }
+            50% {
+                box-shadow: 0 15px 50px rgba(255, 20, 147, 0.8);
+            }
+        }
+
+        .memories-button:hover {
+            transform: scale(1.08) translateY(-8px);
+            animation: none;
+            box-shadow: 0 20px 50px rgba(255, 20, 147, 0.7);
+        }
+
+        .memories-button span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+            }
+
+            .month-card:nth-child(odd),
+            .month-card:nth-child(even) {
+                padding-left: 80px;
+                padding-right: 0;
+            }
+
+            .month-card:nth-child(odd) .month-content,
+            .month-card:nth-child(even) .month-content {
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            .month-card:nth-child(odd) .month-number,
+            .month-card:nth-child(even) .month-number {
+                left: 0;
+                right: auto;
+            }
+
+            .main-title {
+                font-size: 52px;
+            }
+
+            .month-title {
+                font-size: 26px;
+            }
+
+            .month-number {
+                width: 60px;
+                height: 60px;
+                font-size: 22px;
+            }
+
+            .memories-button {
+                padding: 20px 50px;
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+       <h1 class="main-title">8 Years of Friendship 💛</h1>
+       <p class="subtitle">From 8th Standard to Forever Bond ✨</p>
+
+    </div>
+
+    <div class="timeline">
+        <!-- Month 1 -->
+        <div class="month-card">
+            <div class="month-content">
+                <span class="month-emoji">🌟</span>
+                
+                <h2 class="month-title">Year 1: 8th Grade – The First Hello</h2>
+<p class="month-description">
+    I still remember the first time we spoke in 8th grade.
+    It was just a simple conversation,
+    but that small moment became the beginning of something
+    that would last for years.
+    I didn’t know it then,
+    but that day changed my life in a quiet way.
+</p>
+
+
+            </div>
+            <div class="month-number">1</div>
+        </div>
+
+        <!-- Month 2 -->
+        <div class="month-card">
+            <div class="month-content">
+                <span class="month-emoji">💝</span>
+                <h2 class="month-title">Year 2: Growing Closer</h2>
+<p class="month-description">
+    Sitting in class, sharing small jokes,
+    talking during breaks, laughing for no reason —
+    slowly, without even realizing it,
+    you became one of the most important people in my life.
+</p>
+
+            </div>
+            <div class="month-number">2</div>
+        </div>
+
+        <!-- Month 3 -->
+        <div class="month-card">
+            <div class="month-content">
+                <span class="month-emoji">🌹</span>
+                <h2 class="month-title">Year 3: Unforgettable School Days</h2>
+<p class="month-description">
+    The corridor conversations, last-minute exam stress,
+    random laughter, silly fights and quick patch-ups —
+    those school memories with you are something
+    I will never forget.
+    Even now, when I think about them,
+    I miss those days deeply.
+</p>
+
+            </div>
+            <div class="month-number">3</div>
+        </div>
+
+        <!-- Month 4 -->
+        <div class="month-card">
+            <div class="month-content">
+                <span class="month-emoji">☀️</span>
+                <h2 class="month-title">Year 4: More Than Just Classmates</h2>
+<p class="month-description">
+    Our friendship wasn’t just about school anymore.
+    You understood me without long explanations.
+    I could be myself around you.
+    No pretending.
+    No fear.
+    Just comfort.
+</p>
+
+            </div>
+            <div class="month-number">4</div>
+        </div>
+
+        <!-- Month 5 -->
+        <div class="month-card">
+            <div class="month-content">
+                <span class="month-emoji">💫</span>
+                <h2 class="month-title">Year 5: Different Paths, Same Bond</h2>
+<p class="month-description">
+    Life started changing.
+    Classes changed.
+    Routines changed.
+    But somehow,
+    our friendship stayed the same.
+    Even distance couldn’t weaken it.
+</p>
+
+            </div>
+            <div class="month-number">5</div>
+        </div>
+
+        <!-- Month 6 -->
+        <div class="month-card">
+            <div class="month-content">
+                <span class="month-emoji">🎉</span>
+                <h2 class="month-title">Year 6: 2023 – My Biggest Mistake</h2>
+<p class="month-description">
+    In 2023, I made a mistake.
+    Not a small one.
+    A big one.
+    I hurt you.
+    And that is something I still regret.
+    I never meant to cause you pain.
+</p>
+
+            </div>
+            <div class="month-number">6</div>
+        </div>
+
+        <!-- Month 7 -->
+        <div class="month-card">
+            <div class="month-content">
+                <span class="month-emoji">🌈</span>
+                <h2 class="month-title">Year 7: Your Forgiveness</h2>
+<p class="month-description">
+    But you chose to forgive me.
+    That meant more to me than I can ever explain.
+    Your forgiveness showed me what true friendship really is.
+    And I will always be grateful for that.
+</p>
+
+            </div>
+            <div class="month-number">7</div>
+        </div>
+
+        <!-- Month 8 -->
+        <div class="month-card">
+            <div class="month-content">
+                <span class="month-emoji">🌙</span>
+                <h2 class="month-title">Year 8: Still Standing Together</h2>
+<p class="month-description">
+    Eight years later,
+    we are still here.
+    The school days are gone,
+    but the memories remain.
+    Sometimes I miss those days so much,
+    but I’m thankful that I still have you in my life.
+</p>
+
+            </div>
+            <div class="month-number">8</div>
+        </div>
+
+        <!-- Month 9 -->
+        <div class="month-card">
+            <div class="month-content">
+                <span class="month-emoji">✨</span>
+                <h2 class="month-title">Forever Grateful 💛</h2>
+<p class="month-description">
+    Our journey hasn’t been perfect.
+    There were mistakes.
+    There were misunderstandings.
+    But we are still here.
+    And that’s what matters.
+    Thank you for being my best friend through everything.
+</p>
+
+            <div class="month-number">9</div>
+        </div>
+
+       
+    <div class="button-section">
+        <a href="./memories.html" class="memories-button">
+            <span>See Your Memories 📸</span>
+        </a>
+    </div>
+</body>
+</html> 

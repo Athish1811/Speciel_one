@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You ❤️</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ffeef8 0%, #ffe5f1 50%, #ffd4e8 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Image Section */
+        .image-section {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: slideDown 1s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .vertical-image {
+            width: 100%;
+            max-width: 400px;
+            height: 550px;
+            border-radius: 20px;
+            object-fit: cover;
+            box-shadow: 0 20px 60px rgba(255, 105, 180, 0.4);
+            border: 5px solid white;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .image-placeholder {
+            width: 100%;
+            max-width: 400px;
+            height: 550px;
+            background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            box-shadow: 0 20px 60px rgba(255, 105, 180, 0.4);
+            border: 5px solid white;
+            margin: 0 auto;
+            color: white;
+            font-size: 80px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .placeholder-text {
+            font-size: 20px;
+            margin-top: 20px;
+            font-weight: 300;
+        }
+
+        /* Love Letter Section */
+        .letter-section {
+            background: white;
+            padding: 60px 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            margin-bottom: 50px;
+            position: relative;
+            animation: slideUp 1s ease-out 0.3s backwards;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .letter-section::before {
+            content: '💕';
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 60px;
+            background: white;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+        }
+
+        .letter-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 56px;
+            color: #ff1493;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .letter-content {
+            font-size: 20px;
+            line-height: 1.9;
+            color: #333;
+            text-align: center;
+            font-weight: 300;
+        }
+
+        .letter-content p {
+            margin-bottom: 25px;
+        }
+
+        .highlight {
+            color: #ff1493;
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        .signature {
+            text-align: right;
+            font-family: 'Great Vibes', cursive;
+            font-size: 42px;
+            color: #ff1493;
+            margin-top: 40px;
+        }
+
+        /* Button Section */
+        .button-section {
+            text-align: center;
+            animation: fadeIn 1s ease-out 0.6s backwards;
+        }
+
+        .journey-button {
+            display: inline-block;
+            padding: 25px 70px;
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: white;
+            background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
+            border: none;
+            border-radius: 60px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 15px 40px rgba(255, 20, 147, 0.5);
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .journey-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .journey-button:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+
+        .journey-button:hover {
+            transform: scale(1.08) translateY(-8px);
+            box-shadow: 0 20px 50px rgba(255, 20, 147, 0.7);
+        }
+
+        .journey-button:active {
+            transform: scale(0.95);
+        }
+
+        .journey-button span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Floating hearts */
+        .hearts-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-heart {
+            position: absolute;
+            font-size: 30px;
+            opacity: 0;
+            animation: floatHeart 12s infinite ease-in-out;
+        }
+
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .floating-heart:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .floating-heart:nth-child(2) { left: 20%; animation-delay: 2s; }
+        .floating-heart:nth-child(3) { left: 30%; animation-delay: 4s; }
+        .floating-heart:nth-child(4) { left: 40%; animation-delay: 1s; }
+        .floating-heart:nth-child(5) { left: 50%; animation-delay: 3s; }
+        .floating-heart:nth-child(6) { left: 60%; animation-delay: 5s; }
+        .floating-heart:nth-child(7) { left: 70%; animation-delay: 2.5s; }
+        .floating-heart:nth-child(8) { left: 80%; animation-delay: 4.5s; }
+        .floating-heart:nth-child(9) { left: 90%; animation-delay: 1.5s; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .vertical-image,
+            .image-placeholder {
+                max-width: 300px;
+                height: 400px;
+            }
+
+            .letter-section {
+                padding: 40px 30px;
+            }
+
+            .letter-title {
+                font-size: 42px;
+            }
+
+            .letter-content {
+                font-size: 18px;
+            }
+
+            .signature {
+                font-size: 32px;
+            }
+
+            .journey-button {
+                padding: 20px 50px;
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating hearts background -->
+    <div class="hearts-bg">
+        <div class="floating-heart">❤️</div>
+        <div class="floating-heart">💕</div>
+        <div class="floating-heart">💖</div>
+        <div class="floating-heart">💗</div>
+        <div class="floating-heart">💝</div>
+        <div class="floating-heart">❤️</div>
+        <div class="floating-heart">💕</div>
+        <div class="floating-heart">💖</div>
+        <div class="floating-heart">💗</div>
+    </div>
+
+    <div class="container">
+        <!-- Image Section -->
+        <div class="image-section">
+          <div class="image-section">
+    
+    <h2 style="margin-top:15px; color:#ff1493; font-family:'Great Vibes', cursive; font-size:40px;">
+        My Loose 👑
+    </h2>
+</div>
+            <!-- To add your image, replace the div above with:
+            <img src="hema-photo.jpg" alt="Hema" class="vertical-image">
+            -->
+        </div>
+
+        <!-- Love Letter Section -->
+        <div class="letter-section">
+            <h1 class="letter-title">My Dearest </h1>
+            
+            <div class="letter-content">
+                <p>From the moment you came into my life, things felt lighter. You didn’t just enter my world — you made it better.</p>
+                
+                <p>You are the one I can talk to about anything, the one who listens without judging, the one who understands even my silence.</p>
+                
+                <p>Every laugh we share, every random conversation, every small memory — it all means more to me than I can explain.</p>
+                
+                <p>You are not just a friend. You are my <span class="highlight">safe place, my support system, my comfort person</span>.</p>
+                
+                <p>No matter where life takes us, I hope one thing never changes — <span class="highlight">us</span>. Our bond. Our madness. Our friendship.</p>
+                
+                <p>Thank you for being in my life. Truly.</p>
+            </div>
+
+
+            <div class="signature">Forever Yours 💕</div>
+        </div>
+
+        <!-- Button Section -->
+        <div class="button-section">
+            <a href="./second.html" class="journey-button">
+                <span>Start Our Journey ✨</span>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Precious Memories 💕</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#ffeef8,#ffe5f1);
+    padding:40px 20px;
+}
+
+/* HEADER */
+.header{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.main-title{
+    font-family:'Great Vibes',cursive;
+    font-size:60px;
+    color:#ff1493;
+}
+
+.subtitle{
+    font-size:18px;
+    color:#666;
+}
+
+/* SMALLER GRID */
+.photo-grid{
+    max-width:1300px;
+    margin:0 auto 60px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); /* Bigger frames */
+    gap:20px;
+}
+
+.media-item{
+    height:280px; /* Bigger height */
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+    transition:0.3s ease;
+    background:#fff; /* So no black gap */
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.media-item img,
+.media-item video{
+    max-width:100%;
+    max-height:100%;
+    object-fit:contain; /* IMPORTANT – face cut aagadhu */
+}
+
+.media-item:hover{
+    transform:scale(1.05);
+}
+
+/* PROPOSAL SECTION */
+.proposal-section{
+    max-width:700px;
+    margin:80px auto;
+}
+
+.proposal-card{
+    background:white;
+    padding:60px 40px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 20px 60px rgba(255,20,147,0.3);
+    border:5px solid #ff1493;
+}
+
+.proposal-title{
+    font-family:'Great Vibes',cursive;
+    font-size:48px;
+    color:#ff1493;
+    margin-bottom:20px;
+}
+
+.proposal-text{
+    font-size:20px;
+    line-height:1.6;
+    margin-bottom:40px;
+}
+
+.proposal-buttons{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.proposal-btn{
+    padding:16px 45px;
+    font-size:22px;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+    transition:0.3s ease;
+    font-weight:bold;
+}
+
+.yes-btn{
+    background:linear-gradient(135deg,#00c853,#00e676);
+    color:white;
+}
+
+.yes-btn:hover{
+    transform:scale(1.1);
+}
+
+.no-btn{
+    background:linear-gradient(135deg,#ff1744,#ff5252);
+    color:white;
+}
+
+@media(max-width:768px){
+    .main-title{ font-size:38px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1 class="main-title">Your Precious Memories</h1>
+    <p class="subtitle">Every moment captured, every smile treasured 📸</p>
+</div>
+
+<div class="photo-grid" id="photoGrid"></div>
+
+<div class="proposal-section">
+    <div class="proposal-card">
+        <h2 class="proposal-title">Will You Stay My Best Friend Forever?</h2>
+        <p class="proposal-text">
+            Elakkiya💗, you are not just my friend…
+            you are my comfort place, my biggest support,
+            and the one person who understands me without explanations.
+            You stood by me in my worst days and laughed with me in my best days.
+            Life feels lighter and brighter because you are in it.
+            I don’t know what the future holds,
+            but I know I never want to lose a friend like you.
+            Will you promise to stay my best friend forever? 🩵
+        </p>
+
+        <div class="proposal-buttons">
+         
+
+            <button class="proposal-btn yes-btn" onclick="sayYes()">I Never Leave You💕</button>
+            <button class="proposal-btn no-btn" id="noBtn" onclick="sayNo()">No I Leave</button>
+        </div>
+    </div>
+</div>
+
+<script>
+/* PHOTOS */
+const photos = [
+"img 1.jpeg","2.jpeg","3.jpeg","4.jpeg","5.jpeg",
+"6.jpeg","7.jpeg","8.jpeg","9.jpeg","10.jpeg",
+"11.jpeg","12.jpeg","13.jpeg","14.jpeg","15.jpeg",
+"16.jpeg","17.jpeg","18.jpeg","19.jpeg","20.jpeg",
+"21.jpeg","22.jpeg","23.jpeg","24.jpeg","25.jpeg",
+"26.jpeg","27.jpeg","28.jpeg","29.jpeg","30.jpeg",
+"31.jpeg","32.jpeg","33.jpeg","34.jpeg","35.jpeg",
+"36.jpeg","37.jpeg","38.jpeg","39.jpeg","40.jpeg",
+"41.jpeg","42.jpeg","43.jpeg","44.jpeg","45.jpeg",
+"46.jpeg","47.jpeg","48.jpeg","49.jpeg","50.jpeg",
+"51.jpeg","52.jpeg","53.jpeg","54.jpeg","55.jpeg",
+"56.jpeg","57.jpeg","58.jpeg","59.jpeg","60.jpeg",
+"61.jpeg","62.jpeg","63.jpeg","64.jpeg","65.jpeg",
+"66.jpeg","67.jpeg","68.jpeg","69.jpeg","70.jpeg",
+"71.jpeg","72.jpeg","73.jpeg","74.jpeg","75.jpeg",
+"76.jpeg","77.jpeg","78.jpeg","79.jpeg"
+];
+
+/* VIDEOS (ADD YOUR VIDEO FILE NAMES HERE) */
+const videos = [
+"80.mp4",
+"81.mp4",
+"82.mp4",
+"83.mp4",
+"84.mp4",
+"85.mp4",
+"86.mp4",
+"87.mp4",
+
+];
+
+/* REMOVE DUPLICATES */
+const uniquePhotos = [...new Set(photos)];
+const uniqueVideos = [...new Set(videos)];
+
+const grid = document.getElementById("photoGrid");
+
+/* ADD PHOTOS */
+uniquePhotos.forEach(src=>{
+    const div=document.createElement("div");
+    div.className="media-item";
+    div.innerHTML=`<img src="${src}" alt="">`;
+    grid.appendChild(div);
+});
+
+/* ADD VIDEOS */
+/* ADD VIDEOS */
+uniqueVideos.forEach(src=>{
+    const div=document.createElement("div");
+    div.className="media-item";
+    div.innerHTML=`
+        <video src="${src}" controls></video>
+    `;
+    grid.appendChild(div);
+});
+
+/* BUTTON FUNCTIONS */
+const noBtn=document.getElementById("noBtn");
+
+function sayNo(){
+    const maxX=window.innerWidth-noBtn.offsetWidth;
+    const maxY=window.innerHeight-noBtn.offsetHeight;
+    noBtn.style.position="fixed";
+    noBtn.style.left=Math.random()*maxX+"px";
+    noBtn.style.top=Math.random()*maxY+"px";
+}
+
+function sayYes(){
+    window.location.href = "promise.html";
+}
+
+</script>
+
+</body>
+</html>
