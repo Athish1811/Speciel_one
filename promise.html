@@ -111,11 +111,10 @@ body{
 </div>
 
 <!-- Background Music -->
-<audio id="bgMusic" autoplay loop>
-    <source src="WhatsApp Audio 2026-02-22 at 5.18.12 AM.mpeg" type="audio/mpeg">
-</audio>
+<audio id="bgMusic" autoplay loop></audio>
 
 <script>
+
 /* Floating Blue Hearts */
 for(let i=0;i<30;i++){
     const heart=document.createElement("div");
@@ -127,14 +126,49 @@ for(let i=0;i<30;i++){
     document.body.appendChild(heart);
 }
 
-/* If autoplay blocked, play on first click */
+/* SONG LIST (Add your songs here) */
+const songs = [
+    "5.mpeg",
+    "1.mpeg",
+    "2.mpeg",
+    "3.mpeg",
+    "4.mpeg",
+    
+    "6.mpeg",
+    "7.mpeg",
+
+    "9.mpeg",
+];
+
+/* Get last played song index */
+let index = localStorage.getItem("songIndex");
+
+if(index === null){
+    index = 0;
+}else{
+    index = parseInt(index) + 1;
+}
+
+/* Loop songs */
+if(index >= songs.length){
+    index = 0;
+}
+
+localStorage.setItem("songIndex", index);
+
+/* Play selected song */
+const music = document.getElementById("bgMusic");
+music.src = songs[index];
+
+/* If autoplay blocked */
 window.addEventListener("click", function(){
-    document.getElementById("bgMusic").play();
+    music.play();
 }, { once: true });
 
 function goBack(){
     window.location.href="memories.html"; 
 }
+
 </script>
 
 </body>
