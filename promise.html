@@ -6,97 +6,18 @@
 <title>Forever Besties 💙</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    font-family:'Poppins',sans-serif;
-    background:linear-gradient(135deg,#dbeafe,#eff6ff);
-    overflow:hidden;
-    text-align:center;
-    padding:20px;
-}
-
-/* Floating Hearts */
-.heart{
-    position:absolute;
-    font-size:20px;
-    animation:floatUp 6s linear infinite;
-    opacity:0.7;
-}
-
-@keyframes floatUp{
-    0%{
-        transform:translateY(0);
-        opacity:0.7;
-    }
-    100%{
-        transform:translateY(-110vh);
-        opacity:0;
-    }
-}
-
-/* Card */
-.card{
-    background:white;
-    padding:50px 35px;
-    border-radius:20px;
-    box-shadow:0 20px 60px rgba(0,0,0,0.15);
-    max-width:700px;
-    animation:fadeIn 2s ease forwards;
-}
-
-.title{
-    font-family:'Great Vibes',cursive;
-    font-size:50px;
-    color:#1e3a8a;
-    margin-bottom:20px;
-}
-
-.message{
-    font-size:20px;
-    line-height:1.7;
-    color:#333;
-}
-
-@keyframes fadeIn{
-    from{ opacity:0; transform:translateY(30px); }
-    to{ opacity:1; transform:translateY(0); }
-}
-
-.back-btn{
-    margin-top:30px;
-    padding:12px 30px;
-    border:none;
-    border-radius:30px;
-    font-size:16px;
-    cursor:pointer;
-    background:#1e3a8a;
-    color:white;
-    transition:0.3s;
-}
-
-.back-btn:hover{
-    transform:scale(1.05);
-}
-</style>
+<link rel="stylesheet" href="./css/style.css">
+<script src="./js/main.js" defer></script>
 </head>
 
-<body>
+<body class="page-promise">
+<div id="global-loader">
+    <div class="loader-heart">💓</div>
+</div>
 
-<div class="card">
-    <h1 class="title">Forever Besties 💙</h1>
-    <p class="message">
+<main class="card-blue fade-up">
+    <h1 class="title-blue">Forever Besties 💙</h1>
+    <p class="message-blue">
         No matter where life takes us,  
         no matter how busy we become,  
         let’s promise to stay the same.  
@@ -108,68 +29,10 @@ body{
     </p>
 
     <button class="back-btn" onclick="goBack()">Back to Memories 📸</button>
-</div>
+</main>
 
-<!-- Background Music -->
-<audio id="bgMusic" autoplay loop></audio>
-
-<script>
-
-/* Floating Blue Hearts */
-for(let i=0;i<30;i++){
-    const heart=document.createElement("div");
-    heart.classList.add("heart");
-    heart.innerHTML="💙";
-    heart.style.left=Math.random()*100+"vw";
-    heart.style.fontSize=(15+Math.random()*25)+"px";
-    heart.style.animationDuration=(4+Math.random()*4)+"s";
-    document.body.appendChild(heart);
-}
-
-/* SONG LIST (Add your songs here) */
-const songs = [
-    "5.mpeg",
-    "1.mpeg",
-    "2.mpeg",
-    "3.mpeg",
-    "4.mpeg",
-    
-    "6.mpeg",
-    "7.mpeg",
-
-    "9.mpeg",
-];
-
-/* Get last played song index */
-let index = localStorage.getItem("songIndex");
-
-if(index === null){
-    index = 0;
-}else{
-    index = parseInt(index) + 1;
-}
-
-/* Loop songs */
-if(index >= songs.length){
-    index = 0;
-}
-
-localStorage.setItem("songIndex", index);
-
-/* Play selected song */
-const music = document.getElementById("bgMusic");
-music.src = songs[index];
-
-/* If autoplay blocked */
-window.addEventListener("click", function(){
-    music.play();
-}, { once: true });
-
-function goBack(){
-    window.location.href="memories.html"; 
-}
-
-</script>
+<div id="music-container"></div>
+<audio id="bgMusic" preload="metadata"></audio>
 
 </body>
 </html>
